@@ -10,17 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2021_06_26_070459) do
-=======
-ActiveRecord::Schema.define(version: 2021_06_26_071600) do
->>>>>>> b4877ee23dc7c5bca782dc2bc098add3e738ca24
+ActiveRecord::Schema.define(version: 2021_06_26_075750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-<<<<<<< HEAD
-=======
+  create_table "bookings", force: :cascade do |t|
+    t.date "date_start"
+    t.date "date_end"
+    t.bigint "user_id", null: false
+    t.bigint "costume_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["costume_id"], name: "index_bookings_on_costume_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
   create_table "costumes", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -31,7 +36,6 @@ ActiveRecord::Schema.define(version: 2021_06_26_071600) do
     t.index ["user_id"], name: "index_costumes_on_user_id"
   end
 
->>>>>>> b4877ee23dc7c5bca782dc2bc098add3e738ca24
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -44,8 +48,7 @@ ActiveRecord::Schema.define(version: 2021_06_26_071600) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-<<<<<<< HEAD
-=======
+  add_foreign_key "bookings", "costumes"
+  add_foreign_key "bookings", "users"
   add_foreign_key "costumes", "users"
->>>>>>> b4877ee23dc7c5bca782dc2bc098add3e738ca24
 end
