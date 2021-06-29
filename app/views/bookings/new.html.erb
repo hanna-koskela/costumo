@@ -5,7 +5,7 @@
 <%= simple_form_for(@booking) do |f| %>
   <%= f.input :date_start %>
   <%= f.input :date_end %>
-  <%= f.input :costume_id %>
-  <%= f.input :user_id %>
+  <%= f.association :costume %>
+  <%= f.association :user %>
   <%= f.button :submit %>
 <% end %>
