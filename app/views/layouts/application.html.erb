@@ -13,9 +13,11 @@
   </head>
 
   <body>
-    <div class="logo"></div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <!-- add the following to render the component partials -->
+    <%= render "shared/navbar"  %>
+    <%= render 'shared/flashes' %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
