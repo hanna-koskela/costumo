@@ -1,0 +1,12 @@
+<h1>Costumes#home</h1>
+<p>Find me in app/views/costumes/home.html.erb</p>
+
+<div class="costume-group">
+    <% @costumes.each do |costume| %>
+      <div class="costume-card">
+        <h3> <%= costume.title %> </h3>
+        <p><%= costume.description %></p>
+        <p><%= costume.price %></p>
+      </div>
+    <% end %>
+</div>
