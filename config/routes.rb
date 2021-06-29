@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'bookings/new'
+  get 'bookings/create'
+  get 'bookings/show'
+  get 'bookings/update'
+  get 'bookings/edit'
+  get 'bookings/destroy'
   get 'costumes/index'
   get 'costumes/show'
   devise_for :users
