@@ -1,2 +1,29 @@
 <h1>Costumes#show</h1>
 <p>Find me in app/views/costumes/show.html.erb</p>
+
+
+<div class="container">
+  <!-- Costume title -->
+  <h1> <%= @costume.title %> </h1>
+  <!-- Costume images -->
+
+  <!-- [calendar, description] | FLEXBOX -->
+  <div class="d-flex">
+    <!-- calendar -->
+    <div id='costume-booking-dates' data-unavailable="<%= @costume.unavailable_dates.to_json %>">
+      <% if true %>
+       <%= simple_form_for([@costume, @booking]) do |f| %>
+           <%= f.input :date_start, as: :string, type: :text %>
+           <%= f.input :date_end, as: :string, type: :text %>
+           <%= f.submit "Book", class: "btn btn-primary" %>
+        <% end %>
+      <% end %>
+    </div>
+    <!-- description -->
+    <div>
+      <span class="border">
+        <%= @costume.description %>
+      </span>
+    </div>
+  </div>
+</div>
