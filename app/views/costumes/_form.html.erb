@@ -2,7 +2,7 @@
   <%= f.input :title %>
   <%= f.input :description, as: :text %>
   <%= f.input :price, label: "Enter daily rate $" %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true, name: "post_attachments[photos][]" } %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <br>
   <%= f.submit "Save", class: "btn btn-primary"%>
   <br>
