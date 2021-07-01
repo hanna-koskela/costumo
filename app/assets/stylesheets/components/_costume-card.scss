@@ -1,12 +1,12 @@
 .costume-card {
   overflow: hidden;
   height: 120px;
-  background: rgba(255,255,255,0.5);;
+  background: rgba(255,255,255,0.5);
   box-shadow: 0 1px 8px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   margin-bottom: 8px;
-  color: grey;
+  color: rgba(5,5,5,0.7);
   &:hover{
     color: black;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -16,7 +16,7 @@
 
 .costume-card img {
   height: 100%;
-  width: 120px;
+  width: 160px;
   object-fit: cover;
 }
 

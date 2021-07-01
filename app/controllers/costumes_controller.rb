@@ -1,5 +1,5 @@
 class CostumesController < ApplicationController
-  before_action :find_costume, only: [:show, :destroy]
+  before_action :find_costume, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: :home
   def home
     @costumes = Costume.all
@@ -24,6 +24,22 @@ class CostumesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+  end
+
+  def update
+    if @costume.update(costume_params)
+      redirect_to costume_path(@costume)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @costume.destroy
+    redirect_to costumes_path
   end
 
   private
