@@ -1,3 +1,33 @@
-<h1>Costumes#index</h1>
-<p>Find me in app/views/costumes/index.html.erb</p>
+<div class='container'>
+  <h1>Your Posted Costumes</h1>
+  <% if user_signed_in? %>
+    <div class="costume-group">
+      <% if @costumes.empty? %>
+        <br>
+        <h4>You have not posted a costume.</h4>
+        <br>
+         <%= link_to "Post A Costume", new_costume_path, class: "btn btn-primary" %>
+      <% else %>
+        <% @costumes.each do |costume| %>
+          <%= link_to costume_path(costume) do %>
+            <div class="costume-card">
+              <% if costume.photos.attached? %>
+                <img alt="<%= costume.title %>" width="100" src="<%= cl_image_path costume.photos.first.key %>" />. <!-- , width: 120, height: 100%, crop: :fit -->
+              <% else %>
+                <img alt="<%= costume.title %>" width="100" src="" />
+              <% end %>
+              <div class="costume-card-infos">
+                <h2> <%= costume.title %> </h2>
+                <p><%= costume.description %></p>
+                <p>$ <%= costume.price %> per day</p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  <% else %>
+    <h4>Please <%= link_to "login", new_user_session_path, class: "nav-link" %> before listing your posted costumes.</h4
+  <% end %>
+</div>
 
