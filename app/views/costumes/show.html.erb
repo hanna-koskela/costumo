@@ -11,13 +11,13 @@
   </div>
 </div>
 <p><%= @costume.description %></p>
-<p><em>$<%= @costume.price %></em>per day</p>
+<p><em>$<%= @costume.price %></em> per day</p>
 <hr>
 <div class="d-flex justify-content-start align-items-start flex-wrap  ">
   <% if @costume.photos.attached? %>
     <% @costume.photos.each do |pic| %>
       <img class="m-1" alt="<%= @costume.title %>" src="<%= cl_image_path pic.key %>"
-          style="  height: 200px; width: 200px; object-fit: cover; " />
+          style="height: 200px; width: 200px; object-fit: cover; box-shadow: 0px 0px 4px darkgrey" />
     <% end %>
   <% else %>
     <br><h4>No photos attached.</h4>
