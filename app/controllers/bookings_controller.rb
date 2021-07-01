@@ -17,4 +17,8 @@ class BookingsController < ApplicationController
 
   def destroy
   end
+
+  def index
+    @bookings = Booking.where(user: current_user).where('date_end > ?', Date.today)
+  end
 end

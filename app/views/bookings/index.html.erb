@@ -1,0 +1,22 @@
+<h1>My Bookings</h1>
+<p>Find me in app/views/bookings/index.html.erb</p>
+
+<h4>Following costume bookings are coming up</h4>
+
+<div class="booking-group">
+    <% @bookings.each do |booking| %>
+      <div class="booking-card">
+        <% if booking.costume.photos.attached? %>
+          <img alt="<%= booking.costume.title %>" width="100" src="<%= cl_image_path booking.costume.photos.first.key %>" />. <!-- , width: 120, height: 100%, crop: :fit -->
+        <% else %>
+          <img alt="<%= booking.costume.title %>" width="100" src="" />
+        <% end %>
+       <div class="booking-card-infos">
+          <h2> <%= booking.costume.title%> </h2>
+          <p>Start date: <%= booking.date_start.strftime("%-d %b %Y") %></p>
+          <p>End date: <%= booking.date_end.strftime("%-d %b %Y")  %></p>
+          <p>Price: $ <%= booking.costume.price %> per day</p>
+      </div>
+    </div>
+    <% end %>
+</div>
