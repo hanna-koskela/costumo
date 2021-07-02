@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.update(booking_params)
 
-    redirect_to booking_path(@booking)
+    redirect_to bookings_path
   end
 
   def edit
@@ -24,6 +24,8 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
+
+    redirect_to bookings_path
   end
 
   def index
@@ -33,7 +35,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:article).permit(:date_start, :date_end, :costume_id)
+    params.require(:booking).permit(:date_start, :date_end, :costume_id)
   end
 
 end

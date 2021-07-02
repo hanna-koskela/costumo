@@ -18,7 +18,7 @@
           <p>Price: $ <%= booking.costume.price %> per day</p>
           <%= link_to "Edit booking", edit_booking_path(booking) %>
           <%= link_to "Delete booking",
-            bookings_path(booking),
+            booking_path(booking),
             method: :delete,
             data: { confirm: "Are you sure you want to delete this booking?" } %>
 
