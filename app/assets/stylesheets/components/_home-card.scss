@@ -1,0 +1,42 @@
+.headers {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.home-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 24px;
+}
+
+.home-card {
+  height: 280px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.5);
+  box-shadow: 0 1px 8px rgba(0,0,0,0.2);
+  margin-bottom: 8px;
+  color: rgba(5,5,5,0.7);
+  &:hover{
+    color: black;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    background: white;
+  }
+}
+
+.home-card img {
+  height: 240px;
+  width: 100%;
+  object-fit: fill;
+}
+
+.home-card-infos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 16px;
+}
+
+

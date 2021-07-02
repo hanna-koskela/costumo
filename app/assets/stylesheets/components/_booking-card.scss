@@ -1,0 +1,40 @@
+.booking-card {
+  overflow: hidden;
+  height: 200px;
+  background: rgba(255,255,255,0.5);;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  color: grey;
+  &:hover{
+    color: black;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    background: white;
+  }
+}
+
+.booking-card img {
+  height: 100%;
+  width: 200px;
+  object-fit: cover;
+}
+
+.booking-card h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.booking-card p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.booking-card .booking-card-infos {
+  padding: 16px;
+}
+
