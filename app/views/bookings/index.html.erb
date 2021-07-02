@@ -1,0 +1,9 @@
+<p1>All my bookings</p1>
+<% @bookings.each do |booking| %>
+    <div class="costume-card">
+        <h2> <%= booking.costume.title %> </h2> 
+        <p> <%= booking.costume.description %> </p> 
+        <p> <%= booking.costume.price %> per day </p> 
+    </div>
+<% end %>
+

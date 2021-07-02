@@ -1,11 +1,11 @@
 <h1>Bookings#new</h1>
 <p>Find me in app/views/bookings/new.html.erb</p>
-
+Testing
 <h1>Create a new booking</h1>
-<%= simple_form_for(@booking) do |f| %>
+<%= simple_form_for([@costume, @booking]) do |f| %>
   <%= f.input :date_start %>
   <%= f.input :date_end %>
-  <%= f.association :costume %>
-  <%= f.association :user %>
+  <%#= f.association :costume %>
+  <%#= f.association :user %>
   <%= f.button :submit %>
 <% end %>
