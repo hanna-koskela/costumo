@@ -12,7 +12,7 @@ function initFlatpickr()
   flatpickr(startDateInput, {
     minDate: "today",
     disable: unavailableDates,
-    dateFormat: "Y-m-d",
+    dateFormat: "d-m-Y",
   });
 
   console.log('im in the file')
@@ -24,7 +24,7 @@ function initFlatpickr()
     flatpickr(endDateInput, {
       minDate: e.target.value,
       disable: unavailableDates,
-      dateFormat: "Y-m-d"
+      dateFormat: "d-m-Y"
       });
     })
   };

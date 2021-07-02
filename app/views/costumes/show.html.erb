@@ -1,12 +1,14 @@
 <div class="d-flex justify-content-between align-items-center">
   <h1><%= @costume.title %></h1>
   <div>
-    <%= link_to "Edit Costume", edit_costume_path, method: :get, class: "btn btn-primary" %>
-    <%= link_to costume_path(@costume), class: "btn btn-warning ml-1",
-        method: :delete,
-        data: { confirm: "Deleteing #{@costume.title}.\nAre you sure?" } do %>
-          <i class="far fa-trash-alt"></i>
-        <% end %>
+    <% if current_user == @costume.user  %>
+      <%= link_to "Edit Costume", edit_costume_path, method: :get, class: "btn btn-primary" %>
+      <%= link_to costume_path(@costume), class: "btn btn-warning ml-1",
+          method: :delete,
+          data: { confirm: "Deleteing #{@costume.title}.\nAre you sure?" } do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
+    <% end %>
     <%= link_to 'Back', costumes_path, class: "btn btn-info ml-1" %>
   </div>
 </div>
