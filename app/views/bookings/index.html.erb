@@ -16,6 +16,12 @@
           <p>Start date: <%= booking.date_start.strftime("%-d %b %Y") %></p>
           <p>End date: <%= booking.date_end.strftime("%-d %b %Y")  %></p>
           <p>Price: $ <%= booking.costume.price %> per day</p>
+          <%= link_to "Edit booking", edit_booking_path(booking) %>
+          <%= link_to "Delete booking",
+            bookings_path(booking),
+            method: :delete,
+            data: { confirm: "Are you sure you want to delete this booking?" } %>
+
       </div>
     </div>
     <% end %>
