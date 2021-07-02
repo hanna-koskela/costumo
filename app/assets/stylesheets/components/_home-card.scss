@@ -11,7 +11,7 @@
 }
 
 .home-card {
-  height: 260px;
+  height: 280px;
   overflow: hidden;
   background: rgba(255,255,255,0.5);
   box-shadow: 0 1px 8px rgba(0,0,0,0.2);
@@ -25,9 +25,9 @@
 }
 
 .home-card img {
-  height: 200px;
+  height: 240px;
   width: 100%;
-  object-fit: cover;
+  object-fit: fill;
 }
 
 .home-card-infos {
