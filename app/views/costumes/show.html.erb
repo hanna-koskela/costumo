@@ -10,8 +10,34 @@
     <%= link_to 'Back', costumes_path, class: "btn btn-info ml-1" %>
   </div>
 </div>
+
 <p><%= @costume.description %></p>
 <p><em>$<%= @costume.price %></em> per day</p>
+
+<!-- [calendar, description] | FLEXBOX -->
+<div class="d-flex">
+  <!-- calendar -->
+  <div id='costume-booking-dates' data-unavailable="<%= @costume.unavailable_dates.to_json %>">
+    <% if true %>
+      <%= simple_form_for([@costume, @booking]) do |f| %>
+        <div class="d-flex align-items-center">
+          <%= f.input :date_start, as: :string, type: :text, label: "Book From" %>
+          <span class="ml-2"> </span>
+          <%= f.input :date_end, as: :string, type: :text, label: "To"  %>
+          <%= f.submit "Book", class: "btn btn-primary px-4 ml-3 mt-3" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- description -->
+<!--   <div>
+    <span class="border">
+      <#%= @costume.description %>
+    </span>
+  </div> -->
+</div>
+
+<!-- Display of costume photos -->
 <hr>
 <div class="d-flex justify-content-start align-items-start flex-wrap  ">
   <% if @costume.photos.attached? %>
@@ -23,3 +49,4 @@
     <br><h4>No photos attached.</h4>
   <% end %>
 </div>
+
