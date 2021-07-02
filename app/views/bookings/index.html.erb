@@ -1,0 +1,33 @@
+<h1>Your Costume Bookings</h1>
+
+<% if user_signed_in? %>
+  <div class="costume-group">
+    <% if @bookings.empty? %>
+      <br>
+      <h4>You have not booked any costume.</h4>
+      <br>
+      <%= link_to 'See Costumes', root_path, class: "btn btn-primary ml-1" %>
+    <% else %>
+      <% @bookings.each do |booking| %>
+        <%= link_to costume_path(booking.costume) do %>
+          <div class="costume-card">
+            <% if booking.costume.photos.attached? %>
+              <img alt="<%= booking.costume.title %>" src="<%= cl_image_path booking.costume.photos.first.key %>" />
+            <% else %>
+              <img alt="<%= booking.costume.title %>" width="100" src="" />
+            <% end %>
+            <div class="costume-card-infos">
+              <h2> <%= booking.costume.title %> </h2>
+              <p><%= booking.costume.description %></p>
+              <p>Booked from <b><%= booking.date_start %></b> to <b><%= booking.date_end %></b> at <em>$ <%= booking.costume.price %><em> per day</p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+<% else %>
+  <h4>Please <%= link_to "login", new_user_session_path, class: "nav-link" %> before booking a costume.</h4
+<% end %>
+
+
