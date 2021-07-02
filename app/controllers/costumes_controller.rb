@@ -50,6 +50,6 @@ class CostumesController < ApplicationController
   end
 
   def find_costume
-    @costume = Costume.where(user: current_user).find(params[:id])
+    @costume = Costume.find(params[:id])
   end
 end

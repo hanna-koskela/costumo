@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
   <%= link_to root_path, class: "navbar-brand" do %>
     <div class='d-flex'>
-    <div class="logo"></div>
+    <div class="logo mr-4"></div>
     <span><%= (user_signed_in?) ? "Hello, #{current_user.first_name}" : ''%></span>
   </div>
   <% end %>
