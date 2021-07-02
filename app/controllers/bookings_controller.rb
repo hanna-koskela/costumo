@@ -16,7 +16,8 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to bookings_path, notice: "Costume #{@costume.title} is booked sucessfully !"
     else
-      render :new
+      # render :new
+      redirect_to costume_path(@costume), alert: @booking.errors.full_messages.first
     end
   end
 
