@@ -17,7 +17,7 @@
         <%= link_to costume_path(costume) do %>
           <div class="costume-card">
             <% if costume.photos.attached? %>
-              <img alt="<%= costume.title %>" src="<%= cl_image_path costume.photos.first.key %>" />. <!-- , width: 120, height: 100%, crop: :fit -->
+              <img alt="<%= costume.title %>" src="<%= cl_image_path costume.photos.first.key %>" /> <!-- , width: 120, height: 100%, crop: :fit -->
             <% else %>
               <img alt="<%= costume.title %>" width="100" src="" />
             <% end %>

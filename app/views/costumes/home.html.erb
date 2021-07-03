@@ -12,7 +12,7 @@
           <img alt="<%= costume.title %>" width="100" height="100" src="" />
         <% end %>
         <div class="home-card-infos">
-          <h6> <%= costume.title %> </h6>
+          <h6> <%= truncate(costume.title, length:25)%> </h6>
           <h6>$ <%= costume.price %> / day</h6>
         </div>
       </div>

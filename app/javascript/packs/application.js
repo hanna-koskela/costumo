@@ -8,7 +8,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import flatpickr from "flatpickr";
-import { initFlatpickr } from "./init_flatpickr.js"
+import { initFlatpickr } from "./init_flatpickr"
 
 Rails.start()
 Turbolinks.start()
