@@ -17,12 +17,11 @@ function initFlatpickr()
 
   console.log('im in the file')
 
-  startDateInput.addEventListener("change", (e) => {
+  startDateInput.addEventListener("change", () => {
     if (startDateInput != "") {
       endDateInput.disabled = false
     }
     flatpickr(endDateInput, {
-      defaultDate: f.selectedDates[0],
       minDate: f.selectedDates[0],
       disable: unavailableDates,
       dateFormat: "d-m-Y"

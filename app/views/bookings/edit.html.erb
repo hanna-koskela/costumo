@@ -1,11 +1,15 @@
-<h1>Bookings#edit</h1>
-<p>Find me in app/views/bookings/edit.html.erb</p>
 
-
-<h1>Edit booking</h1>
-<%= simple_form_for(@booking) do |f| %>
-  <%= f.input :date_start %>
-  <%= f.input :date_end %>
-  <%= f.association :costume %>
-  <%= f.button :submit %>
-<% end %>
+<h1>Edit your current booking for <i><%= @booking.costume.title %></i></h1>
+<p>You currently booked <i><%= @booking.costume.title %></i> from <%= @booking.date_start.strftime("%-d %b %Y") %> to <%= @booking.date_end.strftime("%-d %b %Y") %> </p>
+<p>Change the booking date below: </p>
+<!-- calendar -->
+<div id='costume-booking-dates' data-unavailable="<%= @booking.costume.unavailable_dates_edit(@booking).to_json %>">
+  <%= simple_form_for([@booking]) do |f| %>
+    <div class="d-flex align-items-center">
+      <%= f.input :date_start, as: :string, type: :text, label: "Book From" %>
+      <span class="ml-2"> </span>
+      <%= f.input :date_end, as: :string, type: :text, label: "To"  %>
+      <%= f.submit "Update the booking dates", class: "btn btn-primary px-4 ml-3 mt-3" %>
+    </div>
+  <% end %>
+</div>

@@ -12,7 +12,7 @@
     <% @bookings.each do |booking| %>
       <div class="booking-card">
         <% if booking.costume.photos.attached? %>
-          <img alt="<%= booking.costume.title %>" width="100" src="<%= cl_image_path booking.costume.photos.first.key %>" />. <!-- , width: 120, height: 100%, crop: :fit -->
+          <img alt="<%= booking.costume.title %>" width="100" src="<%= cl_image_path booking.costume.photos.first.key %>" /> <!-- , width: 120, height: 100%, crop: :fit -->
         <% else %>
           <img alt="<%= booking.costume.title %>" width="100" src="" />
         <% end %>
@@ -21,10 +21,11 @@
           <p>Start date: <%= booking.date_start.strftime("%-d %b %Y") %></p>
           <p>End date: <%= booking.date_end.strftime("%-d %b %Y")  %></p>
           <p>Price: $ <%= booking.costume.price %> per day</p>
-          <%= link_to "Edit booking", edit_booking_path(booking) %>
+          <%= link_to "Edit booking", edit_booking_path(booking), :class => "link-button" %>
           <%= link_to "Delete booking",
             booking_path(booking),
             method: :delete,
+            :class => "link-button",
             data: { confirm: "Are you sure you want to delete this booking?" } %>
         </div>
       </div>
