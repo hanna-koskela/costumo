@@ -9,7 +9,7 @@ function initFlatpickr()
   const unavailableDates = JSON.parse(document.querySelector('#costume-booking-dates').dataset.unavailable)
   endDateInput.disabled = true
 
-  flatpickr(startDateInput, {
+  const f = flatpickr(startDateInput, {
     minDate: "today",
     disable: unavailableDates,
     dateFormat: "d-m-Y",
@@ -22,7 +22,8 @@ function initFlatpickr()
       endDateInput.disabled = false
     }
     flatpickr(endDateInput, {
-      minDate: e.target.value,
+      defaultDate: f.selectedDates[0],
+      minDate: f.selectedDates[0],
       disable: unavailableDates,
       dateFormat: "d-m-Y"
       });
