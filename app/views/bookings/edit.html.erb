@@ -6,10 +6,10 @@
 <div id='costume-booking-dates' data-unavailable="<%= @booking.costume.unavailable_dates_edit(@booking).to_json %>">
   <%= simple_form_for([@booking]) do |f| %>
     <div class="d-flex align-items-center">
-      <%= f.input :date_start, :as => :string, :input_html => { :value => f.object.date_start.strftime("%d-%m-%Y") } %>
+      <%= f.input :date_start, :as => :string, input_html: { value: f.object.date_start.strftime("%d-%m-%Y") } %>
       <span class="ml-2"> </span>
-      <%= f.input :date_end, as: :string, type: :text, label: "To", :input_html => { :value => f.object.date_end.strftime("%d-%m-%Y") }  %>
+      <%= f.input :date_end, as: :string, type: :text, label: "To", input_html: { value: f.object.date_end.strftime("%d-%m-%Y") }  %>
     </div>
-    <%= f.submit "Update Booking Dates", class: "btn btn-primary mt-3" %>
+    <%= f.submit "Update Booking", class: "btn btn-primary mt-2" %>
   <% end %>
 </div>

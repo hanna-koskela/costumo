@@ -20,7 +20,7 @@ function initFlatpickr()
       dateFormat: "d-m-Y"
     });
 
-    endDateInput.disabled = (endDateInput.value == "")
+    endDateInput.disabled = (startDateInput.value == "")
 
     startDateInput.addEventListener("change", (event) => {
       if (startDateInput.value != "") {
