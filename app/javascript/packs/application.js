@@ -9,6 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import flatpickr from "flatpickr";
 import { initFlatpickr } from "./init_flatpickr"
+import { totalPrice } from "./total_price"
 
 Rails.start()
 Turbolinks.start()
