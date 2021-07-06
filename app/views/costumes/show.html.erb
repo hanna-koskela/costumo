@@ -2,7 +2,7 @@
   <h1><%= @costume.title %></h1>
   <div>
     <% if current_user == @costume.user  %>
-      <%= link_to "Edit Costume", edit_costume_path, method: :get, class: "btn btn-outline-dark px-3" %>
+      <%= link_to "Edit Costume", edit_costume_path(@costume), method: :get, class: "btn btn-outline-dark px-3" %>
       <%= link_to costume_path(@costume), class: "btn btn-outline-danger ml-2",
           method: :delete,
           data: { confirm: "Deleteing #{@costume.title}.\nAre you sure?" } do %>
