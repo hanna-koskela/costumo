@@ -19,3 +19,11 @@
     <% end %>
   <% end %>
 </div>
+
+<div class="costume-card">
+  <% @costumes.each do |costume| do %>
+    <%= link_to costume_path(costume) %>
+
+    <% end %>
+  <% end %>
+</div>
