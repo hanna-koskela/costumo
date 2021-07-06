@@ -22,7 +22,7 @@
     <% if true %>
       <%= simple_form_for([@costume, @booking]) do |f| %>
         <div class="d-flex align-items-center">
-          <%= f.input :date_start, as: :string, type: :text, label: "Book From" %>
+          <%= f.input :date_start, as: :string, type: :text, label: "Book From"%>
           <span class="ml-2"> </span>
           <%= f.input :date_end, as: :string, type: :text, label: "To"  %>
           <%= f.submit "Book", class: "btn btn-primary px-4 ml-3 mt-3" %>
