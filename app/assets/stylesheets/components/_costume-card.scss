@@ -5,6 +5,12 @@
   height: 370px;
   background-color: white;
   border: 0;
+  transition: transform .2s;
+  &:hover {
+    -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+    transform: scale(1.1);
+  }
 }
 
 .image-box {
