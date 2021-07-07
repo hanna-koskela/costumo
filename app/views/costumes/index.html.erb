@@ -5,7 +5,7 @@
     <%= link_to 'Back', root_path, class: "btn btn-info ml-1" %>
   </div>
 </div>
-<% if user_signed_in? %>
+<!-- <% if user_signed_in? %>
   <div class="costume-group">
     <% if @costumes.empty? %>
       <br>
@@ -17,7 +17,7 @@
         <%= link_to costume_path(costume) do %>
           <div class="costume-card">
             <% if costume.photos.attached? %>
-              <img alt="<%= costume.title %>" src="<%= cl_image_path costume.photos.first.key %>" /> <!-- , width: 120, height: 100%, crop: :fit -->
+              <img alt="<%= costume.title %>" src="<%= cl_image_path costume.photos.first.key %>" />
             <% else %>
               <img alt="<%= costume.title %>" width="100" src="" />
             <% end %>
@@ -34,5 +34,26 @@
 <% else %>
   <h4>Please <%= link_to "login", new_user_session_path, class: "nav-link" %> before listing your posted costumes.</h4
 <% end %>
-
-
+-->
+<% if user_signed_in? %>
+  <% if @costumes.empty? %>
+    <br><h4>You have not posted any costume.</h4><br>
+    <%= link_to "Post A Costume", new_costume_path, class: "btn btn-primary" %>
+  <% else %>
+    <div class="home-group">
+      <% @costumes.each do |costume| %>
+        <%= link_to costume_path(costume) do %>
+          <div class="costume-card">
+            <div class="image-box" style="background-image: url('<%= cl_image_path costume.photos.first.key, gravity: :center, width: 250, height: 350, crop: :fill %>')"> </div>
+            <div class="info-box">
+              <p> <%= costume.title %> </p>
+              <p id="price"> $<%= costume.price %>/day </p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+<% else %>
+  <h4> Please <%= link_to "login", new_user_session_path, class: "nav-link" %> before listing your posted costumes. </h4>
+<% end %>

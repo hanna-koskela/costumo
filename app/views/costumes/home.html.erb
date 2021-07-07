@@ -25,7 +25,7 @@
   <% @costumes.each do |costume| %>
     <%= link_to costume_path(costume) do %>
       <div class="costume-card">
-        <div class="image-box" style="background-image: url('<%= cl_image_path costume.photos.first.key %>')"> </div>
+        <div class="image-box" style="background-image: url('<%= cl_image_path costume.photos.first.key, gravity: :center, width: 250, height: 350, crop: :fill %>')"> </div>
         <div class="info-box">
           <p> <%= costume.title %> </p>
           <p id="price"> $<%= costume.price %>/day </p>
