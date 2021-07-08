@@ -10,6 +10,7 @@ import "channels"
 import flatpickr from "flatpickr";
 import { initFlatpickr } from "./init_flatpickr"
 import { totalPrice } from "./total_price"
+import { initStarRating } from './init_star_rating';
 
 Rails.start()
 Turbolinks.start()
@@ -31,4 +32,5 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initFlatpickr()
+  initStarRating();
 });
