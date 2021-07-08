@@ -14,11 +14,13 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.costume = @costume
+
     if @booking.save
       redirect_to bookings_path, notice: "Costume #{@costume.title} is booked sucessfully !"
     else
-      # render :new
-      redirect_to costume_path(@costume), alert: @booking.errors.full_messages.first
+      flash.now[:alert] = @booking.errors.full_messages.first
+      render "costumes/show" # same as if going to costumes#show  , back to itself with selected dates untouched
+      # redirect_to costume_path(@costume), alert: @booking.errors.full_messages.first
     end
   end
 
@@ -26,9 +28,12 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking.update(booking_params)
-
-    redirect_to bookings_path
+    if @booking.update(booking_params)
+      redirect_to bookings_path, notice: "Costume booking is updated sucessfully !"
+    else
+      flash.now[:alert] = @booking.errors.full_messages.first
+      render :edit
+    end
   end
 
   def edit
