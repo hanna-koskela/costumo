@@ -1,3 +1,4 @@
+import { totalPrice } from "./total_price"
 function initFlatpickr()
 {
   // First we define two variables that are going to grab our inputs field. You can check the ids of the inputs with the Chrome inspector.
@@ -30,7 +31,13 @@ function initFlatpickr()
       if (endDateInput.value == "" || e.selectedDates[0] < f.selectedDates[0])  e.setDate(f.selectedDates[0]);
       // set minimum calendar selection based on start date selection
       e.set("minDate", f.selectedDates[0]);
+      totalPrice()
     })
+
+    // calculate the total price when the end date is selected
+    endDateInput.addEventListener("change", () => {
+      totalPrice()
+    });
   };
 }
 

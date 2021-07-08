@@ -12,10 +12,20 @@
   </div>
 </div>
 
-<p><%= @costume.description %></p>
-<p><em>$<%= @costume.price %></em> per day</p>
 
-<!-- [calendar, description] | FLEXBOX -->
+<!-- description -->
+  <div>
+    <p><em>$<%= @costume.price %></em> per day</p>
+    <h2 id="final_price" data-rate="<%= @costume.price %>"> $<em><%= %></em> total</h2>
+    <div class="text-justify">
+      <span class="border">
+        <%= @costume.description %>
+      </span>
+    </div>
+
+  </div>
+
+
 <div class="d-flex justify-content-start align-items-center">
   <!-- calendar -->
   <div id='costume-booking-dates' data-unavailable="<%= @costume.unavailable_dates.to_json %>">
