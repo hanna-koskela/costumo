@@ -5,7 +5,7 @@
       <%= link_to "Edit Costume", edit_costume_path(@costume), method: :get, class: "btn btn-outline-dark px-3" %>
       <%= link_to costume_path(@costume), class: "btn btn-outline-danger ml-2",
           method: :delete,
-          data: { confirm: "Deleteing #{@costume.title}.\nAre you sure?" } do %>
+          data: { confirm: "Deleting #{@costume.title}.\nAre you sure?" } do %>
             <i class="far fa-trash-alt"></i>
           <% end %>
     <% end %>
@@ -18,9 +18,7 @@
     <p><em>$<%= @costume.price %></em> per day</p>
     <h2 id="final_price" data-rate="<%= @costume.price %>"> $<em><%= %></em> total</h2>
     <div class="text-justify">
-      <span class="border">
-        <%= @costume.description %>
-      </span>
+      <%= @costume.description %>
     </div>
 
   </div>

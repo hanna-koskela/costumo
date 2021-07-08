@@ -1,0 +1,78 @@
+.banner {
+  height: 450px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 56px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-container {
+  color: #F7FFF7;
+  display: inline;
+  //background-color: #F7FFF7;
+  padding: 30px;
+  border-radius: 4px;
+}
+
+.container {
+  margin-top: 16px;
+}
+
+.search-bar {
+  width: 400px;
+}
+
+.search-form-control {
+  position: relative;
+}
+
+.search-form-control .form-control {
+  height: 2.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border: 1px solid #E7E7E7;
+}
+
+.search-form-control .form-control:focus {
+  border: 1px solid pink;
+  outline: none !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.btn-flat {
+  color: white;
+  padding: 8px 8px;
+  padding-left: 8px;
+  border-radius: 4px;
+  background: #4ECDC4;
+  transition: background 0.3s ease;
+}
+
+.typewriter h1 {
+  font-family: Roboto;
+  font-size: 65px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  //border-right: .15em solid pink; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation:
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end 4s;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+// @keyframes blink-caret {
+//   from, to { border-color: transparent }
+//   50% { border-color: pink; }
+// }
+

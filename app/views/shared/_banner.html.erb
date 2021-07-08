@@ -1,0 +1,29 @@
+<div class="banner" style="background-image: url('../../assets/background.jpg');">
+  <div class="banner-container">
+    <div class="typewriter">
+      <h1><strong>Costumo</strong></h1>
+      <!-- <img src="../../assets/logo.png" alt=""> -->
+    </div>
+    <h5>Rent a costume. Be merry 🎉</h5>
+
+    <div class="search-bar">
+      <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+        <div class="search-form-control form-group row g-3">
+          <div class="col-sm-8">
+              <%= text_field_tag :query,
+                params[:query],
+                type: "search",
+                class: "form-control string required",
+                placeholder: "Find a costume"
+              %>
+          </div>
+          <div class="col">
+            <button name="button" type="submit" class="btn btn-flat col">
+              <i class="fas fa-search"></i> Search
+            </button>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
