@@ -5,7 +5,7 @@
 
 
 <div>
-  <%= simple_form_for([@booking]) do |f| %>
+  <%= simple_form_for(@booking, url: update_rating_path(@booking)) do |f| %>
     <div>
       <%= f.input :feedback %>
 
