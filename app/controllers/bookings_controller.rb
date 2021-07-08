@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :find_costume, only: [:new, :create]
-  before_action :find_booking, only: [:show, :edit, :update, :destroy]
+  before_action :find_booking, only: [:show, :edit, :update, :destroy, :rating, :rating_update]
   
   def index
     @bookings = Booking.where(user: current_user).where('date_end > ?', Date.today)
@@ -14,11 +14,13 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.costume = @costume
+
     if @booking.save
       redirect_to bookings_path, notice: "Costume #{@costume.title} is booked sucessfully !"
     else
-      # render :new
-      redirect_to costume_path(@costume), alert: @booking.errors.full_messages.first
+      flash.now[:alert] = @booking.errors.full_messages.first
+      render "costumes/show" # same as if going to costumes#show  , back to itself with selected dates untouched
+      # redirect_to costume_path(@costume), alert: @booking.errors.full_messages.first
     end
   end
 
@@ -26,9 +28,12 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking.update(booking_params)
-
-    redirect_to bookings_path
+    if @booking.update(booking_params)
+      redirect_to bookings_path, notice: "Costume booking is updated sucessfully !"
+    else
+      flash.now[:alert] = @booking.errors.full_messages.first
+      render :edit
+    end
   end
 
   def edit
@@ -40,10 +45,24 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
+  def rating
+  end
+
+  # Does not call this after rating is updated
+  # instead, the update method is called
+  def rating_update
+    @booking.update(feedback_params)
+    redirect_to bookings_path
+  end
+
   private
 
   def booking_params
-    params.require(:booking).permit(:date_start, :date_end, :costume_id)
+    params.require(:booking).permit(:date_start, :date_end, :costume_id, :feedback, :rating)
+  end
+
+  def feedback_params
+    params.require(:booking).permit(:feedback, :rating)
   end
 
   def find_costume
