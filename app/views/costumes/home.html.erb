@@ -5,17 +5,19 @@
     <%= link_to 'See all costumes', root_path, class: "btn btn-primary ml-1" %>
 <% else %>
   <div class="home-group">
-      <% @costumes.each do |costume| %>
-          <%= link_to costume_path(costume) do %>
-        <div class="home-card">
-          <% if costume.photos.attached? %>
-            <img alt="<%= costume.title %>" src="<%= cl_image_path costume.photos.first.key %>" />
-          <% else %>
-            <img alt="<%= costume.title %>" width="100" height="100" src="" />
-          <% end %>
-          <div class="home-card-infos">
-            <h6> <%= truncate(costume.title, length:25)%> </h6>
-            <h6>$ <%= costume.price %> / day</h6>
+    <% @costumes.each do |costume| %>
+      <%= link_to costume_path(costume) do %>
+        <div class="zoom costume-card">
+          <div class="image-box" style="background-image: url('<%= cl_image_path costume.photos.first.key, gravity: :center, width: 250, height: 350, crop: :fill %>')"> </div>
+          <div class="info-box">
+            <p> <%= costume.title %> </p>
+            <p id="price"> $<%= costume.price %>/day </p>
+            <% @rating = (costume.average_rating) %>
+            <div class="home-card-infos">
+              <h6><%= @rating.nil? ? 'Not rated' : "Rating #{@rating}" %>
+                <div class="Stars" style="--rating: <%= "#{@rating}" %>;" aria-label="Rating of this product out of 5."></div>
+              </h6>
+            </div>
           </div>
         </div>
       <% end %>

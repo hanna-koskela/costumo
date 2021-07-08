@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   end
   resources :bookings
 
+  get "bookings/:id/rating", to: "bookings#rating", as: :edit_rating
+  patch "bookings/:id/rating", to: "bookings#rating_update", as: :update_rating
+
 end
