@@ -1,41 +1,77 @@
 .costume-card {
-  overflow: hidden;
-  height: 200px;
-  background: rgba(255,255,255,0.5);
-  box-shadow: 0 1px 8px rgba(0,0,0,0.2);
   display: flex;
-  align-items: center;
-  margin-bottom: 8px;
-  color: rgba(5,5,5,0.7);
-  &:hover{
-    color: black;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    background: white;
+  flex-direction: column;
+  width: 250px;
+  height: 370px;
+  background-color: white;
+  border: 0;
+  transition: transform .3s;
+  &:hover {
+    -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+    transform: scale(1.1);
+    color: $blue;
+    font-weight: bold;
   }
 }
 
-.costume-card img {
+.image-box {
+  width: 100%;
   height: 100%;
-  width: 160px;
-  object-fit: contain;
+  // background-size: contain;
+  // background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.2);
 }
 
-.costume-card h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
+.info-box {
+  p {
+    margin: 0px;
+  }
+  #price {
+    font-size: 14px;
+    font-weight: bold;
+    color: $light-gray;
+  }
 }
+// .costume-card {
+//   overflow: hidden;
+//   height: 200px;
+//   background: rgba(255,255,255,0.5);
+//   box-shadow: 0 1px 8px rgba(0,0,0,0.2);
+//   display: flex;
+//   align-items: center;
+//   margin-bottom: 8px;
+//   color: rgba(5,5,5,0.7);
+//   &:hover{
+//     color: black;
+//     box-shadow: 0 0 15px rgba(0,0,0,0.2);
+//     background: white;
+//   }
+// }
 
-.costume-card p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-  margin-left: 8px;
-}
+// .costume-card img {
+//   height: 100%;
+//   width: 160px;
+//   object-fit: contain;
+// }
 
-.costume-card .costume-card-infos {
-  padding: 16px;
-}
+// .costume-card h2 {
+//   font-size: 16px;
+//   font-weight: bold;
+//   margin: 0;
+// }
+
+// .costume-card p {
+//   font-size: 12px;
+//   line-height: 1.4;
+//   opacity: .7;
+//   margin-bottom: 0;
+//   margin-top: 8px;
+//   margin-left: 8px;
+// }
+
+// .costume-card .costume-card-infos {
+//   padding: 16px;
+// }
 
