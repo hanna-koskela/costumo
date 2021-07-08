@@ -22,7 +22,7 @@
 }
 
 .search-bar {
-  width: 350px;
+  width: 400px;
 }
 
 .search-form-control {
@@ -43,8 +43,8 @@
 
 .btn-flat {
   color: white;
-  padding: 8px 24px;
-  padding-left: 18px;
+  padding: 8px 8px;
+  padding-left: 8px;
   border-radius: 4px;
   background: #4ECDC4;
   transition: background 0.3s ease;
@@ -55,7 +55,7 @@
   font-size: 65px;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid pink; /* The typwriter cursor */
+  //border-right: .15em solid pink; /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
   letter-spacing: .15em; /* Adjust as needed */
