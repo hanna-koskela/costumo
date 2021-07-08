@@ -1,10 +1,10 @@
 class Costume < ApplicationRecord
   belongs_to :user
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   has_many_attached :photos
 
   validates :title, :price, presence: true
-  validate :bookign_overlap_dates_new
+  # validate :booking_overlap_dates_new
 
   # Changes added for PgSearch
   include PgSearch::Model
@@ -34,8 +34,8 @@ class Costume < ApplicationRecord
     return rating_count.positive? ? rating_total.to_f / rating_count : nil
   end
 
-  def bookign_overlap_dates_new
-    return if date_end.blank? || date_start.blank?
+  def booking_overlap_dates_new
+    # return if date_end.blank? || date_start.blank?
     # get the unavailble dates
     @unavailable_dates = costume.unavailable_dates()
     if @unavailable_dates.any? do |block|
