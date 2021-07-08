@@ -15,6 +15,10 @@
           <h6> <%= truncate(costume.title, length:25)%> </h6>
           <h6>$ <%= costume.price %> / day</h6>
         </div>
+        <% @rating = (costume.average_rating) %>
+        <h6>Rating <%= "#{@rating}" %>
+          <div class="Stars" style="--rating: <%= "#{@rating}" %>;" aria-label="Rating of this product out of 5."></div>
+        </h6>
       </div>
     <% end %>
   <% end %>

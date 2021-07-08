@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :find_costume, only: [:new, :create]
-  before_action :find_booking, only: [:show, :edit, :update, :destroy]
+  before_action :find_booking, only: [:show, :edit, :update, :destroy, :rating, :rating_update]
   
   def index
     @bookings = Booking.where(user: current_user).where('date_end > ?', Date.today)
@@ -40,10 +40,24 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
+  def rating
+  end
+
+  # Does not call this after rating is updated
+  # instead, the update method is called
+  def rating_update
+    @booking.update(feedback_params)
+    redirect_to bookings_path
+  end
+
   private
 
   def booking_params
-    params.require(:booking).permit(:date_start, :date_end, :costume_id)
+    params.require(:booking).permit(:date_start, :date_end, :costume_id, :feedback, :rating)
+  end
+
+  def feedback_params
+    params.require(:booking).permit(:feedback, :rating)
   end
 
   def find_costume

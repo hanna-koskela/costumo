@@ -17,4 +17,11 @@ class Costume < ApplicationRecord
       { from: range[0], to: range[1] }
     end
   end
+
+  def average_rating
+    rating_count = bookings.where("rating>=0").count
+    rating_total = bookings.where("rating>=0").sum(:rating)
+
+    return rating_count.positive? ? rating_total.to_f / rating_count : nil
+  end
 end

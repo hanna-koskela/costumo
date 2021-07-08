@@ -1,0 +1,24 @@
+<h1>Submit feedback for <i><%= @booking.costume.title %></i></h1>
+<p>You booked <i><%= @booking.costume.title %></i> from <%= @booking.date_start.strftime("%-d %b %Y") %> to <%= @booking.date_end.strftime("%-d %b %Y") %> </p>
+<p>Please provide us your feedback below.</p>
+<hr>
+
+
+<div>
+  <%= simple_form_for([@booking]) do |f| %>
+    <div>
+      <%= f.input :feedback %>
+
+      <%#= f.input :rating, label: "Rating out of 5"  %>
+
+      <div class="d-flex"
+      <scan class="mt-1">Rating out of 5:</scan>
+      <%= f.collection_radio_buttons :rating, [[1], [2], [3], [4], [5]], :first, :last, item_wrapper_tag: false, boolean_style: :inline, label: "Rating out of 5" do |b| %>
+        <scan class="ml-4"><%= b.radio_button + b.label %>  </scan>
+      <% end %>
+
+
+    </div>
+    <%= f.submit "Submit Feedback", class: "btn btn-primary mt-2" %>
+  <% end %>
+</div>
