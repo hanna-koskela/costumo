@@ -19,9 +19,15 @@ class Costume < ApplicationRecord
     end
   end
 
+  def average_rating
+    rating_count = bookings.where("rating>=0").count
+    rating_total = bookings.where("rating>=0").sum(:rating)
+
+    return rating_count.positive? ? rating_total.to_f / rating_count : nil
+  end
+
   def bookign_overlap_dates_new
     return if date_end.blank? || date_start.blank?
-
     # get the unavailble dates
     @unavailable_dates = costume.unavailable_dates()
     if @unavailable_dates.any? do |block|
