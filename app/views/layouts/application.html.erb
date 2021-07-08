@@ -16,6 +16,12 @@
     <!-- add the following to render the component partials -->
     <%= render "shared/navbar"  %>
     <%= render 'shared/flashes' %>
+
+    <!-- Banner component is only loaded for root page, it is outside of container on purpose -->
+    <% if current_page?(root_path) %>
+      <%= render 'shared/banner' %>
+    <% end %>
+
     <div class="container">
       <%= yield %>
     </div>

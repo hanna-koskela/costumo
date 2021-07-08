@@ -5,6 +5,14 @@ class Costume < ApplicationRecord
 
   validates :title, :price, presence: true
 
+  # Changes added for PgSearch
+  include PgSearch::Model
+  pg_search_scope :search_by_title_and_description,
+    against: [:title, :description],
+    using: {
+      tsearch: { prefix: true }
+  }
+
   # a list of unavailable dates from https://medium.com/@sonia.montero/date-validations-and-flatpickr-setup-for-rails-24c78d6eb784
   def unavailable_dates
     bookings.pluck(:date_start, :date_end).map do |range|

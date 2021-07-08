@@ -2,7 +2,11 @@ class CostumesController < ApplicationController
   before_action :find_costume, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: :home
   def home
-    @costumes = Costume.all
+    if params[:query].present?
+      @costumes = Costume.search_by_title_and_description(params[:query])
+    else
+      @costumes = Costume.all
+    end
   end
 
   def index
