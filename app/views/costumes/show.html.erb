@@ -2,7 +2,7 @@
   <h1><%= @costume.title %></h1>
   <div>
     <% if current_user == @costume.user  %>
-      <%= link_to "Edit Costume", edit_costume_path, method: :get, class: "btn btn-outline-dark px-3" %>
+      <%= link_to "Edit Costume", edit_costume_path(@costume), method: :get, class: "btn btn-outline-dark px-3" %>
       <%= link_to costume_path(@costume), class: "btn btn-outline-danger ml-2",
           method: :delete,
           data: { confirm: "Deleteing #{@costume.title}.\nAre you sure?" } do %>
@@ -25,18 +25,12 @@
           <%= f.input :date_start, as: :string, type: :text, label: "Book From"%>
           <span class="ml-2"> </span>
           <%= f.input :date_end, as: :string, type: :text, label: "To"  %>
-          <%= f.submit "Book", class: "btn btn-primary px-4 ml-3 mt-3" %>
         </div>
+        <%= f.submit "Book", class: "btn btn-primary px-4 " %>
+        <%= link_to 'Back', :back, class: "btn btn-info ml-2" %>
       <% end %>
     <% end %>
   </div>
-  <%= link_to 'Back', :back, class: "btn btn-info ml-2 mt-3" %>
-  <!-- description -->
-<!--   <div>
-    <span class="border">
-      <#%= @costume.description %>
-    </span>
-  </div> -->
 </div>
 
 <!-- Display of costume photos -->
