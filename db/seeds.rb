@@ -1,8 +1,8 @@
 require 'open-uri'
 
 # Optional: you can delete existing data by uncommenting below 2 lines
-# User.all.destroy
-# Costume.all.destroy
+User.all.destroy
+Costume.all.destroy
 
 user1 = User.create!(email: "1user@user.com", first_name: "Mary", last_name: "Smith", password: "123456")
 user2 = User.create!(email: "2user@user.com", first_name: "Adam", last_name: "Sandler", password: "123456")
