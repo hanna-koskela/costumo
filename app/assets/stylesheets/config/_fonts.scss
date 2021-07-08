@@ -1,11 +1,12 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;800&family=Poppins:wght@100;300;400;500;700;800&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Roboto","Work Sans", "Helvetica", "sans-serif"; //"Montserrat",
-$headers-font: "Roboto","Work Sans", "Helvetica", "sans-serif"; //"Montserrat",
+$body-font: "Poppins", "Roboto","Work Sans", "Helvetica", "sans-serif"; //"Montserrat",
+$headers-font: "Poppins", "Roboto","Work Sans", "Helvetica", "sans-serif"; //"Montserrat",
 
 h1 {
   font-size: 36px;
