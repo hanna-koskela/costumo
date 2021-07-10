@@ -3,7 +3,8 @@ class BookingsController < ApplicationController
   before_action :find_booking, only: [:show, :edit, :update, :destroy, :rating, :rating_update]
   
   def index
-    @bookings = Booking.where(user: current_user).where('date_end >= ?', Date.today)
+    @bookings = Booking.where(user: current_user).where('date_end >= ?', Date.today).order('date_start DESC')
+    @bookings_past = Booking.where(user: current_user).where('date_end < ?', Date.today).order('date_start DESC')
   end
 
   def new
