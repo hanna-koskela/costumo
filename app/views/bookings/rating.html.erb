@@ -7,12 +7,43 @@
     <div>
       <%= f.input :feedback %>
       <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
-
-      <%#= f.collection_radio_buttons :rating, [[1], [2], [3], [4], [5]], :first, :last, item_wrapper_tag: false, boolean_style: :inline, label: "Rating out of 5" do |b| %>
-        <!-- <scan class="ml-4"><#%= b.radio_button + b.label %>  </scan> -->
-      <%# end %>
-
     </div>
     <%= f.submit "Submit Feedback", class: "btn btn-primary mt-2" %>
   <% end %>
+</div>
+
+<!-- You can't have two form input with same name :rating  , either chnaeg the rating name below or above to use teh star rating iniput -->
+
+<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 ">Provide Feedback</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="p-2">
+          <%= simple_form_for(@booking, url: update_rating_path(@booking)) do |f| %>
+            <div>
+              <%= f.input :feedback, label: "Please provide your feedback below" %>
+              <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", class: "booking_rating_star" %>
+            </div>
+            <div class="d-flex justify-content-center">
+              <%= f.submit "Submit Feedback", class: "btn btn-primary mt-2" %>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="text-center">
+  <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Launch
+    Modal Login Form</a>
 </div>

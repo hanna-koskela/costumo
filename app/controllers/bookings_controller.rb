@@ -48,6 +48,10 @@ class BookingsController < ApplicationController
   def rating
   end
 
+  def find_booking_by_id(id)
+    @booking = Booking.find(id)
+  end
+
   # Does not call this after rating is updated
   # instead, the update method is called
   def rating_update
@@ -72,4 +76,5 @@ class BookingsController < ApplicationController
   def find_booking
     @booking = Booking.find(params[:id])
   end
+
 end
