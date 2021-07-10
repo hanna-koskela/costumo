@@ -17,7 +17,10 @@
   </div>
   <!-- FLEXBOX rating | posted by :username -->
   <div class="d-flex justify-content-between align-items-center mt-2 mb-4">
-    <h6> <%= @rating.nil? ? 'Not rated' : "Rating #{@rating}" %> </h6>
+    <% @rating = (@costume.average_rating) %>
+    <h6><%= @rating.nil? ? 'Not rated' : "Rating #{@rating}" %>
+      <div class="Stars" style="--rating: <%= "#{@rating}" %>;" aria-label="Rating of this product out of 5."></div>
+    </h6>
     <div class="d-flex align-items-center">
       <h6> Posted by <%= @costume.user.first_name %> </h6>
       <% if @costume.user.photo.attached? %>
