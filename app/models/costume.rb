@@ -31,7 +31,7 @@ class Costume < ApplicationRecord
     rating_count = bookings.where("rating>=0").count
     rating_total = bookings.where("rating>=0").sum(:rating)
 
-    return rating_count.positive? ? rating_total.to_f / rating_count : nil
+    return rating_count.positive? ? (rating_total.to_f / rating_count).round(1) : nil
   end
 
   def booking_overlap_dates_new
