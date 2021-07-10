@@ -26,25 +26,27 @@
 
 <div class="d-flex justify-content-around mt-4">
   <!-- calendar -->
-  <div id='costume-booking-dates' data-unavailable="<%= @booking.costume.unavailable_dates_edit(@booking).to_json %>">
-    <%= simple_form_for([@booking]) do |f| %>
-      <div class="d-flex align-items-center">
-        <%= f.input :date_start, :as => :string, input_html: { value: f.object.date_start.strftime("%d-%m-%Y") } %>
-        <span class="ml-2"> </span>
-        <%= f.input :date_end, as: :string, type: :text, label: "To", input_html: { value: f.object.date_end.strftime("%d-%m-%Y") }  %>
-      </div>
-      <%= f.submit "Update Booking", class: "btn btn-primary mt-2" %>
-    <% end %>
+  <div class="col-6">
+    <div id='costume-booking-dates' data-unavailable="<%= @booking.costume.unavailable_dates_edit(@booking).to_json %>">
+      <%= simple_form_for([@booking]) do |f| %>
+        <div class="d-flex align-items-center">
+          <%= f.input :date_start, :as => :string, input_html: { value: f.object.date_start.strftime("%d-%m-%Y") } %>
+          <span class="ml-2"> </span>
+          <%= f.input :date_end, as: :string, type: :text, label: "To", input_html: { value: f.object.date_end.strftime("%d-%m-%Y") }  %>
+        </div>
+        <%= f.submit "Update Booking", class: "btn btn-primary mt-2" %>
+      <% end %>
+    </div>
   </div>
   <!-- price & description -->
-  <div>
-    <p><em>$<%= @booking.costume.price %></em> per day</p>
-    <h2 id="final_price" data-rate="<%= @booking.costume.price %>"> $<em><%= %></em> total</h2>
-    <div class="text-justify mt-3">
-      <span class="border-top">
-
+  <div class="col-6">
+    <div>
+      <p><em>$<%= @booking.costume.price %></em> per day</p>
+      <h2 id="final_price" data-rate="<%= @booking.costume.price %>"> $<em><%= %></em> total</h2>
+      <div class="text-justify mt-3">
+        <h5>About the costume:</h5>
         <%= @booking.costume.description %>
-      </span>
+      </div>
     </div>
   </div>
 </div>
