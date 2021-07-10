@@ -18,8 +18,13 @@
   <!-- FLEXBOX rating | posted by :username -->
   <div class="d-flex justify-content-between align-items-center mt-2 mb-4">
     <h6> <%= @rating.nil? ? 'Not rated' : "Rating #{@rating}" %> </h6>
-    <div>
+    <div class="d-flex align-items-center">
       <h6> Posted by <%= @costume.user.first_name %> </h6>
+      <% if @costume.user.photo.attached? %>
+        <%= cl_image_tag @costume.user.photo.key, class: "avatar-bordered"%>
+      <% else %>
+        <%= image_tag asset_url("costumo.png"), class: "avatar-bordered"%>
+      <% end %>
     </div>
   </div>
   <!-- image carousel -->
@@ -75,9 +80,7 @@
   <div class="mt-4">
     <h2>Reviews</h2>
     <span class="border border-info"></span>
-    <div class="d-flex justify-content-around">
-
-    </div>
+    <div class="d-flex justify-content-around"></div>
   </div>
 
 </div>
