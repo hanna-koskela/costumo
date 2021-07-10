@@ -19,12 +19,12 @@
             <p> <%= truncate(costume.title, length: 20) %> </p>
             <p id="price"> $<%= costume.price %>/day </p>
             <% @rating = (costume.average_rating) %>
+          </div>
             <div class="home-card-infos">
               <h6><%= @rating.nil? ? 'Not rated' : "Rating #{@rating}" %>
                 <div class="Stars" style="--rating: <%= "#{@rating}" %>;" aria-label="Rating of this product out of 5."></div>
               </h6>
             </div>
-          </div>
         </div>
       <% end %>
     <% end %>
