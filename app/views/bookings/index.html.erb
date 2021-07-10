@@ -44,9 +44,9 @@
           <p>Price: $ <%= booking.costume.price %> per day</p>
           <a href="" class="mt-2 btn btn-flat" data-toggle="modal" data-target=<%= "#modalRatingForm-#{booking.id}" %>>Review Costume</a>
           <% @rating = booking.rating %>
-          <h3><%= @rating.nil? ? 'Not rated' : "" %>
+          <h6><%= @rating.nil? ? 'Not rated' : "" %>
             <div class="Stars" style="--rating: <%= "#{@rating}" %>;" aria-label="Rating of this product out of 5."></div>
-          </h3>
+          </h6>
         </div>
       </div>
       <!-- Modal for rating -->
