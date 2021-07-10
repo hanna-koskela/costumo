@@ -20,6 +20,7 @@ class Booking < ApplicationRecord
     return if date_end.blank? || date_start.blank?
 
     # get the unavailble dates
+
     @unavailable_dates = costume.unavailable_dates_edit(self)
     if @unavailable_dates.any? do |block|
         block[:from].between?(date_start, date_end) || block[:to].between?(date_start, date_end)
