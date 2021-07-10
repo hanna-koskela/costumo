@@ -82,8 +82,20 @@
   <!-- reviews -->
   <div class="mt-4">
     <h2>Reviews</h2>
-    <span class="border border-info"></span>
-    <div class="d-flex justify-content-around"></div>
+    <% @costume.bookings.each do |booking| %>
+      <% if booking.feedback.nil? %>
+      <% else %>
+        <div class="d-flex">
+          <div class="col-1">
+            <p> <%= booking.user.first_name %> </p>
+          </div>
+          <div class="col-2">
+            <div class="Stars" style="--rating: <%= "#{booking.rating}" %>;" aria-label="Rating of this product out of 5."></div>
+          </div>
+          <p> <%= booking.feedback %></p>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 
 </div>
