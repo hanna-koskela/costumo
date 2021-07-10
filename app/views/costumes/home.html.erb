@@ -16,7 +16,7 @@
           <div class="image-box" style="background-image: url('<%= image_path("background.jpg") %>')"> </div>
           <% end %>
           <div class="info-box">
-            <p> <%= costume.title %> </p>
+            <p> <%= truncate(costume.title, length: 20) %> </p>
             <p id="price"> $<%= costume.price %>/day </p>
             <% @rating = (costume.average_rating) %>
             <div class="home-card-infos">
