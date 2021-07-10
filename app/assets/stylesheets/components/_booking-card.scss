@@ -1,6 +1,12 @@
+.booking-group {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-gap: 24px;
+}
+
 .booking-card {
   overflow: hidden;
-  height: 200px;
+  height: 250px;
   background: rgba(255,255,255,0.5);;
   box-shadow: 0 1px 8px rgba(0,0,0,0.2);
   display: flex;
@@ -16,7 +22,7 @@
 
 .booking-card img {
   height: 100%;
-  width: 200px;
+  width: 250px;
   object-fit: contain;
 }
 
@@ -36,5 +42,18 @@
 
 .booking-card .booking-card-infos {
   padding: 16px;
+}
+
+.btn-flat {
+  color: white;
+  padding: 8px 8px;
+  padding-left: 8px;
+  background: #4ECDC4;
+  transition: background 0.3s ease;
+}
+
+.btn-flat:hover {
+  color: white;
+  background: #34bbb2;
 }
 

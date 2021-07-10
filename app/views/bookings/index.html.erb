@@ -1,14 +1,13 @@
 <h1>My Costume Bookings</h1>
 
-<h4>Following costume bookings are coming up</h4>
-
 <div class="booking-group">
-  <% if @bookings.empty? %>
+  <% if @bookings.empty? && @bookings_past.empty? %>
       <br>
-      <h4>You have not booked any costume.</h4>
+      <h4>You have not booked any costumes.</h4>
       <br>
       <%= link_to 'See Costumes', root_path, class: "btn btn-primary ml-1" %>
   <% else %>
+
     <% @bookings.each do |booking| %>
       <div class="booking-card">
         <% if booking.costume.photos.attached? %>
@@ -20,14 +19,30 @@
           <h2> <%= booking.costume.title%> </h2>
           <p>Start date: <%= booking.date_start.strftime("%-d %b %Y") %></p>
           <p>End date: <%= booking.date_end.strftime("%-d %b %Y")  %></p>
-          <p>Price: $ <%= booking.costume.price %> per day</p>
-          <%= link_to "Edit Booking", edit_booking_path(booking), class: "mt-2 btn btn-primary" %>
-          <%= link_to booking_path(booking),
-            method: :delete,
-            class: "btn btn-danger mt-2 ml-4",
-            data: { confirm: "Are you sure you want to delete this booking?" } do %>
-              <i class="far fa-trash-alt"></i>
-            <% end %>
+            <p>Price: $ <%= booking.costume.price %> per day</p>
+              <%= link_to "Edit Booking", edit_booking_path(booking), class: "mt-2 btn btn-primary" %>
+              <%= link_to booking_path(booking),
+                method: :delete,
+                class: "btn btn-danger mt-2 ml-4",
+                data: { confirm: "Are you sure you want to delete this booking?" } do %>
+                  <i class="far fa-trash-alt"></i>
+                <% end %>
+        </div>
+      </div>
+    <% end %>
+    <% @bookings_past.each do |booking| %>
+      <div class="booking-card">
+        <% if booking.costume.photos.attached? %>
+          <img alt="<%= booking.costume.title %>" width="100" src="<%= cl_image_path booking.costume.photos.first.key %>" /> <!-- , width: 120, height: 100%, crop: :fit -->
+        <% else %>
+          <img alt="<%= booking.costume.title %>" width="100" src="" />
+        <% end %>
+        <div class="booking-card-infos">
+          <h2> <%= booking.costume.title%> </h2>
+          <p>Start date: <%= booking.date_start.strftime("%-d %b %Y") %></p>
+          <p>End date: <%= booking.date_end.strftime("%-d %b %Y")  %></p>
+            <p>Price: $ <%= booking.costume.price %> per day</p>
+          <%= link_to "Review costume", edit_rating_path(booking), class: "mt-2 btn btn-flat" %>
         </div>
       </div>
     <% end %>
