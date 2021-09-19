@@ -6,14 +6,30 @@
 <% else %>
   <div class="home-group">
     <% @costumes.each do |costume| %>
-      <%= link_to costume_path(costume) do %>
-        <div class="costume-card">
+      <div class="costume-card">
+        <%= link_to costume_path(costume) do %>
           <% if costume.photos.attached? %>
            <!-- Populate image -->
-          <div class="image-box" style="background-image: url('<%= cl_image_path costume.photos.first.key, gravity: :center, width: 250, height: 350, crop: :fill %>')"> </div>
-           <% else %>
-           <!-- Populate placeholder image -->
-          <div class="image-box" style="background-image: url('<%= image_path("background.jpg") %>')"> </div>
+            <div id="carouselExampleControls-<%= costume.id %>" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <% costume.photos.each do |pic| %>
+                <div class="carousel-item  <%= 'active' if costume.photos[0] == pic %>" style="height: 350px">
+                  <div class="image-box" style="background-image: url('<%= cl_image_path pic.key, gravity: :center, width: 250, height: 350, crop: :fill %>')"> </div>
+                </div>
+                <% end %>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleControls-<%= costume.id %>" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleControls-<%= costume.id %>" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          <% else %>
+            <!-- Populate placeholder image -->
+            <div class="image-box" style="background-image: url('<%= image_path("background.jpg") %>')"> </div>
           <% end %>
           <div class="info-box">
             <p> <%= truncate(costume.title, length: 20) %> </p>
@@ -25,8 +41,11 @@
               <div class="Stars" style="--rating: <%= "#{@rating}" %>;" aria-label="Rating of this product out of 5."></div>
             </h6>
           </div>
+        <% end %>
       </div>
-      <% end %>
     <% end %>
   </div>
 <% end %>
+
+
+
